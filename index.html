@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Acenodes - Minecraft Server Hosting</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background-color: #111;
+      color: #fff;
+    }
+    header {
+      background-color: #1c1c1c;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      box-shadow: 0 4px 10px rgba(255, 140, 0, 0.3);
+    }
+    header img {
+      height: 60px;
+    }
+    nav a {
+      color: #FFA500;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #fff;
+    }
+    .hero {
+      text-align: center;
+      padding: 80px 20px;
+      background: linear-gradient(145deg, #ff9900, #ff3300);
+      animation: fadeIn 1s ease-in-out;
+    }
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+    .hero p {
+      font-size: 20px;
+    }
+    .section {
+      padding: 60px 20px;
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+    .plans {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+    .plan {
+      background: rgba(30, 30, 30, 0.7);
+      backdrop-filter: blur(10px);
+      padding: 20px;
+      border-radius: 12px;
+      width: 200px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 2px solid #ff9900;
+      box-shadow: 0 0 10px rgba(255, 153, 0, 0.4);
+    }
+    .plan:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(255, 153, 0, 0.7);
+    }
+    .plan h3 {
+      color: #FFA500;
+    }
+    .plan p {
+      margin: 10px 0;
+    }
+    .plan button {
+      background: #ff3300;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .plan button:hover {
+      background: #ff5500;
+      transform: scale(1.05);
+    }
+    .map {
+      height: 500px;
+      margin-top: 40px;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      pointer-events: none;
+    }
+    .auth-form {
+      background: rgba(30, 30, 30, 0.8);
+      max-width: 400px;
+      margin: 30px auto;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255, 140, 0, 0.4);
+    }
+    .auth-form h2 {
+      margin-bottom: 20px;
+      color: #FFA500;
+    }
+    .auth-form input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 6px;
+      outline: none;
+    }
+    .auth-form button {
+      width: 100%;
+      padding: 10px;
+      background: #ff3300;
+      border: none;
+      border-radius: 6px;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .auth-form button:hover {
+      background: #ff5500;
+    }
+    footer {
+      background: #000;
+      padding: 30px;
+      text-align: center;
+      color: #ccc;
+    }
+    .cart {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(40, 40, 40, 0.85);
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ffa500;
+    }
+    .cart p {
+      margin-bottom: 10px;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 600px) {
+      nav a {
+        display: block;
+        margin: 10px 0;
+      }
+      .plans {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+  <script>
+    let total = 0;
+    function addToCart(price) {
+      total += price;
+      document.getElementById('cart-total').innerText = `$${total.toFixed(2)}`;
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <img src="/mnt/data/af5902d5-82fe-461c-831a-a4e80378e0d9.png" alt="Acenodes Logo">
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#plans">Plans</a>
+      <a href="#features">Features</a>
+      <a href="#map">Our Node</a>
+      <a href="#contact">Contact</a>
+      <a href="#login">Login</a>
+      <a href="#signup">Sign Up</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <h1>Welcome to Acenodes</h1>
+    <p>Blazing-fast Minecraft server hosting. US hosted, unbeatable performance.</p>
+  </section>
+
+  <section class="section" id="plans">
+    <h2>Our Hosting Plans</h2>
+    <div class="plans">
+      <div class="plan"><h3>1 GB RAM</h3><p>Small servers</p><p>$2.99/month</p><button onclick="addToCart(2.99)">Add to Cart</button></div>
+      <div class="plan"><h3>2 GB RAM</h3><p>Friends/plugins</p><p>$5.99/month</p><button onclick="addToCart(5.99)">Add to Cart</button></div>
+      <div class="plan"><h3>4 GB RAM</h3><p>Modded servers</p><p>$10.99/month</p><button onclick="addToCart(10.99)">Add to Cart</button></div>
+      <div class="plan"><h3>8 GB RAM</h3><p>Large communities</p><p>$18.99/month</p><button onclick="addToCart(18.99)">Add to Cart</button></div>
+      <div class="plan"><h3>16 GB RAM</h3><p>Heavy modpacks</p><p>$34.99/month</p><button onclick="addToCart(34.99)">Add to Cart</button></div>
+      <div class="plan"><h3>32 GB RAM</h3><p>Massive servers</p><p>$64.99/month</p><button onclick="addToCart(64.99)">Add to Cart</button></div>
+    </div>
+  </section>
+
+  <section class="section" id="features">
+    <h2>Why Choose Us?</h2>
+    <p>Instant setup, DDoS protection, powerful panel, and 24/7 support.</p>
+  </section>
+
+  <section class="section" id="map">
+    <h2>Our Node Location</h2>
+    <p>Currently hosted in the US for optimal worldwide ping.</p>
+    <div class="map">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.0899215408133!2d-122.41941528468137!3d37.77492977975926!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80858064c70ddbf5%3A0x83d3dbf63a8cabc!2sUnited%20States!5e0!3m2!1sen!2sus!4v1662911260860!5m2!1sen!2sus" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <section class="section" id="login">
+    <div class="auth-form">
+      <h2>Login</h2>
+      <input type="email" placeholder="Email" />
+      <input type="password" placeholder="Password" />
+      <button onclick="alert('Login system not implemented')">Login</button>
+    </div>
+  </section>
+
+  <section class="section" id="signup">
+    <div class="auth-form">
+      <h2>Sign Up</h2>
+      <input type="text" placeholder="Username" />
+      <input type="email" placeholder="Email" />
+      <input type="password" placeholder="Password" />
+      <button onclick="alert('Signup system not implemented')">Create Account</button>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <h2>Get in Touch</h2>
+    <p>Email: support@acenodes.com</p>
+  </section>
+
+  <div class="cart">
+    <p><strong>Cart Total:</strong> <span id="cart-total">$0.00</span></p>
+    <button onclick="alert('Checkout system not implemented')">Checkout</button>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Acenodes. All rights reserved.</p>
+  </footer>
+</body>
+</html>
